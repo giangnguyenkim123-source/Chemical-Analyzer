@@ -1,0 +1,2 @@
+# Chemical Formula Analyzer
+# No external dependencies - only standard library
