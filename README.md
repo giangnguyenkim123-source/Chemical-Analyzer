@@ -8,7 +8,6 @@ A Python program to analyze chemical formulas and calculate molecular properties
 - **Molecular Weight**: Calculate molecular mass using atomic weights
 - **Mass Percentages**: Determine element mass percentages
 - **Unsaturation Degree**: Calculate degree of unsaturation for organic compounds
-- **Parentheses Support**: Handle complex formulas with nested groups
 
 ## Installation
 
