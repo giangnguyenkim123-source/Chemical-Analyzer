@@ -193,6 +193,18 @@ def calculate_unsaturation_degree(elements_count):
     Returns:
         int or str: Degree of unsaturation or message for inorganic compounds
     """
+    metallic_elements = {'Li', 'Be', 'Na', 'Mg', 'Al', 'K', 'Ca', 'Sc', 'Ti', 'V', 
+                        'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga', 'Rb', 'Sr',
+                        'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd',
+                        'In', 'Sn', 'Sb', 'Cs', 'Ba', 'La', 'Hf', 'Ta', 'W', 'Re',
+                        'Os', 'Ir', 'Pt', 'Au', 'Hg', 'Tl', 'Pb', 'Bi', 'Po', 'Fr',
+                        'Ra', 'Ac', 'Th', 'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk',
+                        'Cf', 'Es', 'Fm', 'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh',
+                        'Hs', 'Mt', 'Ds', 'Rg', 'Cn', 'Nh', 'Fl', 'Mc', 'Lv', 'Ts', 'Og'}
+    for element in elements_count.keys():
+        if element in metallic_elements:
+            return 'not applicable'
+        
     if 'C' in elements_count:
         # Get counts of relevant elements
         carbon = elements_count.get('C', 0)
@@ -202,11 +214,10 @@ def calculate_unsaturation_degree(elements_count):
                    elements_count.get('Br', 0) + elements_count.get('I', 0))
         
         # Apply degree of unsaturation formula
-        unsaturation_degree = (carbon * 2 + 2 + nitrogen - hydrogen - halogens) // 2
+        unsaturation_degree = int((carbon * 2 + 2 + nitrogen - hydrogen - halogens) / 2)
         return unsaturation_degree
     else:
         return 'not an organic compound'
-
 # Main execution flow
 def main():
     """Main function to run the chemical analyzer"""
@@ -231,3 +242,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
